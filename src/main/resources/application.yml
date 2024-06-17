@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: damda
+
+  profiles:
+    include: dev
