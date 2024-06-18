@@ -27,6 +27,6 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         String requestURI = request.getRequestURI();
         return requestURI.startsWith("/login") || requestURI.startsWith("/signup")
-                || requestURI.startsWith("/swagger-ui");
+                || requestURI.startsWith("/swagger") || requestURI.startsWith("/v3") || requestURI.startsWith("/api-docs");
     }
 }
