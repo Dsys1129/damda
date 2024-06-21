@@ -13,7 +13,7 @@ public class CustomExceptionHandler {
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<ExceptionResponse> handleException(CustomException e) {
         ExceptionResponse response = new ExceptionResponse(e);
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        return ResponseEntity.status(response.getHttpStatus()).body(response);
     }
 
     @ExceptionHandler(Exception.class)
