@@ -2,6 +2,7 @@ package com.damda.user.entity;
 
 import com.damda.couple.entity.Couple;
 import com.damda.user.dto.UserSignupRequestDTO;
+import com.damda.user.dto.UserUpdateRequestDTO;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -55,6 +56,7 @@ public class User {
         this.nickname = nickname;
         this.age = age;
         this.gender = gender;
+        this.createdAt = createdAt;
     }
 
     public static User createNewUser(String imagePath, String encryptedPassword, UserSignupRequestDTO requestDTO, LocalDateTime createdAt) {
@@ -67,5 +69,11 @@ public class User {
                 .gender(Gender.valueOf(requestDTO.getGender()))
                 .createdAt(createdAt)
                 .build();
+    }
+    public void updateUserInfo(String profileImage, UserUpdateRequestDTO requestDTO, LocalDateTime now) {
+        this.profileImage = profileImage;
+        this.nickname = requestDTO.getNickname();
+        this.age = requestDTO.getAge();
+        this.updatedAt = now;
     }
 }

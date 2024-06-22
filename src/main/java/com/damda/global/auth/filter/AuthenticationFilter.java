@@ -15,7 +15,6 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("user") == null) {
             throw new AuthenticationFailException("인증에 실패하였습니다.");
@@ -26,7 +25,18 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         String requestURI = request.getRequestURI();
-        return requestURI.startsWith("/login") || requestURI.startsWith("/signup")
-                || requestURI.startsWith("/swagger-ui");
+        return isStaticResource(requestURI) || isUnsecuredPath(requestURI);
+    }
+
+    private boolean isStaticResource(String requestURI) {
+        return requestURI.startsWith("/css/") || requestURI.startsWith("/js/") ||
+                requestURI.startsWith("/images/") || requestURI.startsWith("/fonts/") ||
+                requestURI.startsWith("/favicon.ico") || requestURI.startsWith("/static/");
+    }
+
+    private boolean isUnsecuredPath(String requestURI) {
+        return requestURI.startsWith("/login") || requestURI.startsWith("/signup") ||
+                requestURI.startsWith("/swagger") || requestURI.startsWith("/v3") ||
+                requestURI.startsWith("/api-docs");
     }
 }
