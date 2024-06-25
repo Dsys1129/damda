@@ -20,7 +20,7 @@
         body {
             max-width: 480px;
             margin: 0 auto;
-            border: 1px solid yellow;
+            position: relative;
         }
         header div {
             height: 53px;
@@ -28,7 +28,6 @@
             align-items: center;
         }
         .main_images {
-            border: 1px solid blue;
             position: relative;
         }
         .main_images img {
@@ -53,6 +52,7 @@
         .best_spot h1 {
             color: #E93778;
             font-size: 25px;
+            padding-top: 10px;
         }
         .best_spot .best_spot_flex {
             display: flex;
@@ -60,7 +60,6 @@
         }
         .best_spot_1, .best_spot_2 {
             width: 47%;
-            border: 1px solid blue;
         }
         .best_spot_1 {
             padding-top: 15px;
@@ -68,11 +67,58 @@
         .best_spot_2 {
             padding-top: 40px;
         }
-        .best_spot .best_spot_box {
+        .best_spot .best_spot_box_1 {
             padding-bottom: 15px;
+            position: relative;
+        }
+        .best_spot .best_spot_box_2 {
+            position: relative;
         }
         .best_spot_1 img, .best_spot_2 img {
             width: 100%;
+        }
+        .best_photo {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            display: flex;
+        }
+        .best_spot h4 {
+            color: white;
+            padding-left: 5px;
+        }
+        .best_photo img {
+            width: 15px;
+        }
+        .best_photo_info {
+            color: white;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .best_photo_info h3 {
+            padding-bottom: 5px;
+        }
+        .best_couple h1 {
+            color: #E93778;
+            font-size: 25px;
+            padding-top: 10px;
+        }
+        footer {
+            position: absolute;
+            bottom: 20px;
+            left: 5%;
+            border: 2px solid #E93778;
+            border-radius: 30px;
+            width: 90%;
+            display: flex;
+            background-color: white;
+            justify-content: space-around;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
 
     </style>
@@ -105,19 +151,67 @@
                 </h1>
                 <div class="best_spot_flex">
                     <div class="best_spot_1">
-                        <div class="best_spot_box">
+                        <div class="best_spot_box_1">
                             <img src="/images/best_place1.png" />
+                            <div class="best_photo">
+                                <img src="/images/best.png" />
+                                <h4>1위</h4>
+                            </div>
+                            <div class="best_photo_info">
+                                <h3>
+                                    서울타워
+                                </h3>
+                                <h4>
+                                    서울 용산구
+                                </h4>
+                            </div>
                         </div>
-                        <div>
+                        <div class="best_spot_box_2">
                             <img src="/images/best_place2.png" />
+                            <div class="best_photo">
+                                <img src="/images/best.png" />
+                                <h4>3위</h4>
+                            </div>
+                            <div class="best_photo_info">
+                                <h3>
+                                    서울타워
+                                </h3>
+                                <h4>
+                                    서울 용산구
+                                </h4>
+                            </div>
                         </div>
                     </div>
                     <div class="best_spot_2">
-                        <div class="best_spot_box">
+                        <div class="best_spot_box_1">
                             <img src="/images/best_place3.png" />
+                            <div class="best_photo">
+                                <img src="/images/best.png" />
+                                <h4>2위</h4>
+                            </div>
+                            <div class="best_photo_info">
+                                <h3>
+                                    서울타워
+                                </h3>
+                                <h4>
+                                    서울 용산구
+                                </h4>
+                            </div>
                         </div>
-                        <div>
+                        <div class="best_spot_box_2">
                             <img src="/images/best_place4.png" />
+                            <div class="best_photo">
+                                <img src="/images/best.png" />
+                                <h4>4위</h4>
+                            </div>
+                            <div class="best_photo_info">
+                                <h3>
+                                    서울타워
+                                </h3>
+                                <h4>
+                                    서울 용산구
+                                </h4>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -133,19 +227,19 @@
         </content>
         <footer>
             <div class="home_btn">
-
+                <img src="/images/home_btn.png" />
             </div>
             <div class="list_btn">
-
+                <img src="/images/list_btn.png" />
             </div>
             <div class="upload_btn">
-
+                <img src="/images/upload_btn.png" />
             </div>
             <div class="search_btn">
-
+                <img src="/images/search_btn.png" />
             </div>
             <div class="profile_btn">
-
+                <img src="/images/profile_btn.png" />
             </div>
         </footer>
     </body>
