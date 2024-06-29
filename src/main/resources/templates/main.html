@@ -4,6 +4,10 @@
         <meta charset="UTF-8">
         <title>Damda_Main</title>
     </head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <style>
         @font-face {
             font-family: 'Pretendard-Regular';
@@ -22,7 +26,12 @@
             margin: 0 auto;
             position: relative;
         }
+        header {
+            box-shadow: 0 4px 4px 0 #d9d9d9;
+            z-index: 100;
+        }
         header div {
+            padding-left: 15px;
             height: 53px;
             display: flex;
             align-items: center;
@@ -48,6 +57,9 @@
         .main_images_text .color_pink {
             color: #E93778;
             margin-left: 5px;
+        }
+        .best_spot {
+            padding: 0 15px 0 15px;
         }
         .best_spot h1 {
             color: #E93778;
@@ -102,33 +114,58 @@
         .best_photo_info h3 {
             padding-bottom: 5px;
         }
+        .best_couple {
+            padding: 0 15px 0 15px;
+        }
         .best_couple h1 {
             color: #E93778;
             font-size: 25px;
-            padding-top: 10px;
+            padding-top: 30px;
+        }
+        .bx-wrapper {
+            border: 0; background:#fff;box-shadow:none;
+            margin-top: 20px;
+            margin-bottom: 90px;
+        }
+        .carousel-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .carousel-item img {
+            border-radius: 50%;
+        }
+        .carousel-text {
+            padding-top: 15px;
+            color: #E93778;
         }
         footer {
-            position: absolute;
+            position: fixed;
             bottom: 20px;
-            left: 5%;
-            border: 2px solid #E93778;
-            border-radius: 30px;
-            width: 90%;
+            max-width: 480px;
+            width: 100%;
+            z-index: 999;
+        }
+        .footer_wrapper {
             display: flex;
+            width: 94%;
             background-color: white;
             justify-content: space-around;
             padding-top: 10px;
             padding-bottom: 10px;
+            border: 2px solid #E93778;
+            border-radius: 30px;
+            margin: 0 auto;
         }
 
     </style>
     <body>
         <header>
             <div>
-                <img src="../static/images/header_1.png"/>
+                <img src="../static/images/header_1.png" alt="header_image"/>
             </div>
         </header>
-        <content>
+        <div class="content">
             <div class="main_images">
                     <img src="../static/images/main_slogan.png" />
                 <div class="main_images_text">
@@ -221,26 +258,60 @@
                     DAMDA’s BEST COUPLE
                 </h1>
                 <div class="carousel">
-
+                    <div class="carousel-item">
+                        <img src="../static/images/couple1.png" alt="Image 1">
+                        <div class="carousel-text">1위 야식좋아</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/images/couple2.png" alt="Image 2">
+                        <div class="carousel-text">2위 대구커플</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/images/couple3.png" alt="Image 3">
+                        <div class="carousel-text">3위 개발자커플</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/images/couple4.png" alt="Image 4">
+                        <div class="carousel-text">4위 알파시티</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../static/images/couple5.png" alt="Image 5">
+                        <div class="carousel-text">5위 자바커플</div>
+                    </div>
                 </div>
             </div>
-        </content>
+        </div>
         <footer>
-            <div class="home_btn">
-                <img src="../static/images/home_btn.png" />
-            </div>
-            <div class="list_btn">
-                <img src="../static/images/list_btn.png" />
-            </div>
-            <div class="upload_btn">
-                <img src="../static/images/upload_btn.png" />
-            </div>
-            <div class="search_btn">
-                <img src="../static/images/search_btn.png" />
-            </div>
-            <div class="profile_btn">
-                <img src="../static/images/profile_btn.png" />
+            <div class="footer_wrapper">
+                <div class="home_btn">
+                    <img src="../static/images/home_btn.png" />
+                </div>
+                <div class="list_btn">
+                    <img src="../static/images/list_btn.png" />
+                </div>
+                <div class="upload_btn">
+                    <img src="../static/images/upload_btn.png" />
+                </div>
+                <div class="search_btn">
+                    <img src="../static/images/search_btn.png" />
+                </div>
+                <div class="profile_btn">
+                    <img src="../static/images/profile_btn.png" />
+                </div>
             </div>
         </footer>
+        <script>
+            $(document).ready(function(){
+                $('.carousel').bxSlider({
+                    auto: true,
+                    speed: 100,
+                    slideWidth: 150,
+                    minSlides: 3,
+                    maxSlides: 3,
+                    slideMargin: 15,
+                    pager: false
+                });
+            });
+        </script>
     </body>
 </html>
