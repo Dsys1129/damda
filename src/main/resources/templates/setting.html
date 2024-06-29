@@ -1,10 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>설정</title>
 </head>
+<style>
+    @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: Pretendard, serif;
+    }
+    body {
+        max-width: 480px;
+        margin: 0 auto;
+        /*height: 100vh;*/
+    }
+    header {
+        box-shadow: 0 4px 4px 0 #d9d9d9;
+    }
+    header div {
+        padding: 0 15px;
+        height: 53px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    header img {
+        cursor: pointer;
+    }
+    .content {
+        padding: 30px 30px 0 30px;
+    }
+    .content h3 {
+        color: #E93778;
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    .content a {
+        display: block;
+        color: #474747;
+        font-size: 20px;
+        text-decoration-line: none;
+        margin-bottom: 15px;
+    }
+    .content span {
+        color: #474747;
+        font-size: 20px;
+    }
+    footer {
+        position: fixed;
+        bottom: 20px;
+        max-width: 480px;
+        width: 100%;
+        z-index: 999;
+    }
+    .footer_wrapper {
+        display: flex;
+        width: 94%;
+        background-color: white;
+        justify-content: space-around;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: 2px solid #E93778;
+        border-radius: 30px;
+        margin: 0 auto;
+    }
+</style>
 <body>
-$END$
+    <header>
+        <div>
+            <img src="../static/images/header_1.png"/>
+            <img src="../static/images/back_btn.png" onclick="goBack()"/>
+        </div>
+    </header>
+    <div class="content">
+        <h3>설정</h3>
+        <a href="p_edit.html">개인 프로필 수정</a>
+        <a href="c_edit.html">커플 프로필 수정</a>
+        <span>커플탈퇴</span>
+    </div>
+    <footer>
+        <div class="footer_wrapper">
+            <div class="home_btn">
+                <img src="../static/images/home_btn.png" />
+            </div>
+            <div class="list_btn">
+                <img src="../static/images/list_btn.png" />
+            </div>
+            <div class="upload_btn">
+                <img src="../static/images/upload_btn.png" />
+            </div>
+            <div class="search_btn">
+                <img src="../static/images/search_btn.png" />
+            </div>
+            <div class="profile_btn">
+                <img src="../static/images/profile_btn.png" />
+            </div>
+        </div>
+    </footer>
+    <script>
+        // 뒤로가기
+        function goBack() {
+            history.back();
+        }
+    </script>
 </body>
 </html>
