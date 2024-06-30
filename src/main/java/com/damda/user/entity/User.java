@@ -59,6 +59,10 @@ public class User {
         this.createdAt = createdAt;
     }
 
+    public void deleteCouple() {
+        this.couple = null;
+    }
+
     public static User createNewUser(String imagePath, String encryptedPassword, UserSignupRequestDTO requestDTO, LocalDateTime createdAt) {
         return User.builder()
                 .userId(requestDTO.getUserId())
