@@ -24,6 +24,10 @@ public class BaseResponseDTO<T> {
         return new BaseResponseDTO<>(message, HttpStatus.CREATED.value(), data);
     }
 
+    public static <T>BaseResponseDTO<T> getBaseResponse200WithData(String message, T data){
+        return new BaseResponseDTO<>(message, HttpStatus.OK.value(), data);
+    }
+
     public static BaseResponseDTO<Void> getBaseResponse200WithoutData(String message) {
         return new BaseResponseDTO(message, HttpStatus.OK.value(), null);
     }
