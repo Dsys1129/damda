@@ -5,7 +5,6 @@ import lombok.Getter;
 
 @Getter
 public class CoupleUpdateRequestDTO {
-
     private String name;
     @JsonProperty(value = "d-day")
     private Integer dDay;

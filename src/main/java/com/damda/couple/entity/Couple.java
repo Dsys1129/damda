@@ -49,7 +49,7 @@ public class Couple {
         this.image = image;
         this.name = name;
         this.dDay = dDay;
-        this.users.add(user);
+        addUser(user);
         this.createdAt = createdAt;
     }
 
@@ -58,5 +58,10 @@ public class Couple {
         this.name = name;
         this.dDay = dDay;
         this.updatedAt = now;
+    }
+
+    public void addUser(User user) {
+        this.users.add(user);
+        user.setCouple(this);
     }
 }

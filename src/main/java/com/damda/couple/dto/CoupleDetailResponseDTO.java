@@ -2,7 +2,7 @@ package com.damda.couple.dto;
 
 import com.damda.couple.entity.Couple;
 import com.damda.feed.entity.Feed;
-import com.damda.feed.service.FeedListResponseDTO;
+
 import com.damda.user.entity.User;
 import lombok.Getter;
 

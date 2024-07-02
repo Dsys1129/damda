@@ -80,4 +80,8 @@ public class User {
         this.age = requestDTO.getAge();
         this.updatedAt = now;
     }
+
+    public void setCouple(Couple couple) {
+        this.couple = couple;
+    }
 }

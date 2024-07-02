@@ -2,6 +2,7 @@ package com.damda.couple.service;
 
 import com.damda.couple.dto.CoupleCreateRequestDTO;
 import com.damda.couple.dto.CoupleDetailResponseDTO;
+import com.damda.couple.dto.CoupleSearchResponseDTO;
 import com.damda.couple.dto.CoupleUpdateRequestDTO;
 import com.damda.couple.entity.Couple;
 import com.damda.couple.repository.CoupleRepository;
@@ -11,6 +12,7 @@ import com.damda.global.exception.ForbiddenException;
 import com.damda.global.image.ImageFolderEnum;
 import com.damda.global.image.ImageUploader;
 import com.damda.user.entity.User;
+import com.damda.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.Cache;
@@ -30,6 +32,7 @@ import java.util.UUID;
 @Transactional(readOnly = true)
 @Service
 public class CoupleService {
+    private final UserRepository userRepository;
 
     private final CoupleRepository coupleRepository;
     private final ImageUploader imageUploader;
@@ -43,7 +46,6 @@ public class CoupleService {
 
         String uploadedFileName = imageUploader.upload(image, ImageFolderEnum.COUPLE);
         Couple couple = new Couple(uploadedFileName, requestDTO.getName(), requestDTO.getDDay(), user, LocalDateTime.now());
-
         String randomCode = UUID.randomUUID().toString().substring(0,6);
         Cache cache = cacheManager.getCache(CacheType.COUPLE_CODE.getCacheName());
         cache.put(randomCode, couple);
@@ -66,8 +68,9 @@ public class CoupleService {
         }
 
         cache.evict(code);
-        couple.getUsers().add(user);
+        couple.addUser(user);
         coupleRepository.save(couple);
+        userRepository.saveAll(couple.getUsers());
         return BaseResponseDTO.getBaseResponse200WithoutData("커플 매칭 성공");
     }
 
@@ -108,5 +111,10 @@ public class CoupleService {
         }
         coupleRepository.delete(findCouple);
         return BaseResponseDTO.getBaseResponse200WithoutData("커플 삭제 성공");
+    }
+
+    public BaseResponseDTO<List<CoupleSearchResponseDTO>> searchCouple(String keyword) {
+        List<CoupleSearchResponseDTO> result = coupleRepository.searchCouplesByKeyword(keyword);
+        return BaseResponseDTO.getBaseResponse200WithData("커플 검색 성공", result);
     }
 }
