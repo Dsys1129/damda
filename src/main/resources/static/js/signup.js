@@ -1,7 +1,3 @@
-document.getElementById('upload-button').addEventListener('click', function() {
-    document.getElementById('file-input').click();
-});
-
 document.getElementById('file-input').addEventListener('change', function(event) {
     const file = event.target.files[0];
     if (file) {
@@ -20,7 +16,7 @@ document.getElementById('register-form').addEventListener('submit', async functi
     const password = document.getElementById('password').value;
     const nickname = document.getElementById('nickname').value;
     const age = document.getElementById('age').value;
-    const gender = document.getElementById('gender').value;
+    let gender = document.getElementById('gender').value;
 
     const user = {
         userId: userId,
@@ -30,11 +26,17 @@ document.getElementById('register-form').addEventListener('submit', async functi
         gender: gender
     };
 
+    console.log(user);
+
+
     const formData = new FormData();
     formData.append('user', new Blob([JSON.stringify(user)], { type: 'application/json' }));
     const fileInput = document.getElementById('file-input');
     if (fileInput.files[0]) {
         formData.append('image', fileInput.files[0]);
+    } else {
+        alert('프로필 이미지를 등록해주세요');
+        return;
     }
 
     try {
@@ -48,12 +50,19 @@ document.getElementById('register-form').addEventListener('submit', async functi
             const data = await response.json();
             alert(data.message);
             window.location.href = '/login';
+        } else if (response.status == 409) {
+            alert('이미 존재하는 아이디입니다.');
+        } else if (response.status == 400) {
+            alert('잘못된 요청입니다. 모든 필드를 올바르게 입력했는지 확인해주세요.');
         } else {
-            const errorData = await response.json();
-            alert('회원가입 실패: ' + errorData.message);
+            alert('회원가입 중 오류가 발생했습니다.');
         }
     } catch (error) {
         console.error('회원가입 중 오류 발생:', error);
         alert('회원가입 중 오류가 발생했습니다.');
     }
 });
+
+function goBack() {
+    history.back();
+}

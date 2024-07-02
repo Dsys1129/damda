@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>커플계정 프로필</title>
@@ -155,25 +155,9 @@
                 <img>
             </div>
         </div>
+        <input type="hidden" id="couple-id" th:value="${coupleId}">
     </div>
-    <footer>
-        <div class="footer_wrapper">
-            <div class="home_btn">
-                <img src="../static/images/home_btn.png" />
-            </div>
-            <div class="list_btn">
-                <img src="../static/images/list_btn.png" />
-            </div>
-            <div class="upload_btn">
-                <img src="../static/images/upload_btn.png" />
-            </div>
-            <div class="search_btn">
-                <img src="../static/images/search_btn.png" />
-            </div>
-            <div class="profile_btn">
-                <img src="../static/images/profile_btn.png" />
-            </div>
-        </div>
-    </footer>
+    <div th:replace="footer :: footer"></div>
+<script src="/js/couple_profile.js"></script>
 </body>
 </html>

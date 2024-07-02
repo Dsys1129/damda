@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Footer Fragment</title>
+    <style>
+        body {
+            max-width: 480px;
+            margin: 0 auto;
+            position: relative;
+        }
+        footer {
+            position: fixed;
+            bottom: 20px;
+            max-width: 480px;
+            width: 100%;
+            z-index: 999;
+        }
+        .footer_wrapper {
+            display: flex;
+            width: 94%;
+            background-color: white;
+            justify-content: space-around;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 2px solid #E93778;
+            border-radius: 30px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<footer th:fragment="footer">
+    <div class="footer_wrapper">
+        <div class="home_btn">
+            <img src="../static/images/home_btn.png" onclick="location.href='/'"/>
+        </div>
+        <div class="list_btn">
+            <img src="../static/images/list_btn.png" onclick="location.href= '/feeds-list'"/>
+        </div>
+        <div class="upload_btn">
+            <img src="../static/images/upload_btn.png" onclick="location.href= '/feeds-create'"/>
+        </div>
+        <div class="search_btn">
+            <img src="../static/images/search_btn.png" onclick="location.href='/couple-search'"/>
+        </div>
+        <div class="profile_btn">
+            <img src="../static/images/profile_btn.png" onclick="location.href='/couples-mypage'" />
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -122,25 +122,7 @@
         </div>
         <input class="submit" type="submit" name="c_join_s" value="수정완료">
     </div>
-    <footer>
-        <div class="footer_wrapper">
-            <div class="home_btn">
-                <img src="../static/images/home_btn.png" />
-            </div>
-            <div class="list_btn">
-                <img src="../static/images/list_btn.png" />
-            </div>
-            <div class="upload_btn">
-                <img src="../static/images/upload_btn.png" />
-            </div>
-            <div class="search_btn">
-                <img src="../static/images/search_btn.png" />
-            </div>
-            <div class="profile_btn">
-                <img src="../static/images/profile_btn.png" />
-            </div>
-        </div>
-    </footer>
+    <div th:replace="footer :: footer"></div>
     <script>
         // 뒤로가기
         function goBack() {
