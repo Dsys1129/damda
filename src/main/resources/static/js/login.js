@@ -20,8 +20,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
             // 로그인 성공 후 필요한 추가 작업 (예: 페이지 리디렉션)
             window.location.href = '/'; // 메인 페이지로 리디렉션
         } else {
-            const errorData = await response.json();
-            alert('로그인 실패: ' + errorData.message); // 로그인 실패 메시지 출력
+            alert('아이디 및 비밀번호를 확인해주세요'); // 로그인 실패 메시지 출력
         }
     } catch (error) {
         console.error('로그인 중 오류 발생:', error);

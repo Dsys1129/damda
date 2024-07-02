@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>커플계정 회원가입</title>
@@ -114,13 +114,15 @@
         <h2>커플정보를 입력하세요</h2>
         <label class="upload-image">
             <img src="../static/images/image_upload.png" alt="Upload Image">
-            <input type="file" accept="image/*">
+            <input id= 'file-input' type="file" accept="image/*">
         </label>
-        <div>
-            <input placeholder="커플명" type="text" name="c_nickname">
-            <input placeholder="D+" type="number" name="c_date">
-        </div>
-        <input class="submit" type="submit" name="c_join_s" value="커플생성">
+        <form id="couple-form">
+            <div>
+                <input placeholder="커플명" type="text" id="name" name="c_nickname" required>
+                <input placeholder="D+" type="number" id="dDay" name="c_date" required>
+            </div>
+            <input class="submit" type="submit" value="커플생성">
+        </form>
     </div>
     <footer>
         <div class="footer_wrapper">
@@ -141,23 +143,6 @@
             </div>
         </div>
     </footer>
-    <script>
-        // 뒤로가기
-        function goBack() {
-            history.back();
-        }
-
-        // 파일 업로드하기
-        document.querySelector('.upload-image input[type="file"]').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.querySelector('.upload-image img').src = e.target.result;
-                }
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
+    <script src="/js/couple_create.js"></script>
 </body>
 </html>

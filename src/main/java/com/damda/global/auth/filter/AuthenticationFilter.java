@@ -1,6 +1,5 @@
 package com.damda.global.auth.filter;
 
-import com.damda.global.exception.AuthenticationFailException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,7 +16,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
         if (session == null || session.getAttribute("user") == null) {
-            throw new AuthenticationFailException("인증에 실패하였습니다.");
+            response.sendRedirect("/login");
         }
         filterChain.doFilter(request, response);
     }
@@ -31,7 +30,8 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     private boolean isStaticResource(String requestURI) {
         return requestURI.startsWith("/css/") || requestURI.startsWith("/js/") ||
                 requestURI.startsWith("/images/") || requestURI.startsWith("/fonts/") ||
-                requestURI.startsWith("/favicon.ico") || requestURI.startsWith("/static/");
+                requestURI.startsWith("/favicon.ico") || requestURI.startsWith("/static") ||
+                requestURI.startsWith("/resources");
     }
 
     private boolean isUnsecuredPath(String requestURI) {
