@@ -157,12 +157,44 @@
             border-radius: 30px;
             margin: 0 auto;
         }
+        .header-content {
+            padding-left: 15px;
+            height: 53px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
 
+        .create-couple-btn,
+        .join-couple-btn {
+            background-color: #E93778;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .create-couple-btn:hover,
+        .join-couple-btn:hover {
+            background-color: #d82c67;
+        }
     </style>
     <body>
         <header>
             <div>
                 <img src="../static/images/header_1.png" alt="header_image"/>
+                <div class="header-buttons">
+                    <button class="create-couple-btn" onclick="location.href='/couples-create'">커플 생성</button>
+                    <button class="join-couple-btn" onclick="joinCouple()">커플 참여</button>
+                </div>
             </div>
         </header>
         <div class="content">
@@ -281,25 +313,7 @@
                 </div>
             </div>
         </div>
-        <footer>
-            <div class="footer_wrapper">
-                <div class="home_btn">
-                    <img src="../static/images/home_btn.png" />
-                </div>
-                <div class="list_btn">
-                    <img src="../static/images/list_btn.png" />
-                </div>
-                <div class="upload_btn">
-                    <img src="../static/images/upload_btn.png" />
-                </div>
-                <div class="search_btn">
-                    <img src="../static/images/search_btn.png" />
-                </div>
-                <div class="profile_btn">
-                    <img src="../static/images/profile_btn.png" />
-                </div>
-            </div>
-        </footer>
+        <div th:replace="footer :: footer"></div>
         <script>
             $(document).ready(function(){
                 $('.carousel').bxSlider({
@@ -312,6 +326,29 @@
                     pager: false
                 });
             });
+            function joinCouple() {
+                const code = prompt("커플 코드를 입력하세요:");
+                if (code) {
+                    fetch(`/couples/${code}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        }
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                alert("커플 참여에 성공했습니다.");
+                            } else {
+                                alert("커플 참여에 실패했습니다.");
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert("커플 참여에 실패했습니다.");
+                        });
+                }
+            }
+
         </script>
     </body>
 </html>

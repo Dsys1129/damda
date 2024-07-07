@@ -21,6 +21,7 @@ public class Feed {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "image", nullable = false)
     private String image;
 
@@ -48,6 +49,8 @@ public class Feed {
     @JoinColumn(name = "photoSpot_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private PhotoSpot photoSpot;
 
+    private int likes;
+
     @Builder
     private Feed(String image, String contents, LocalDate contentsDate, LocalDateTime createdAt, Location location, Couple couple, PhotoSpot photoSpot) {
         this.image = image;
@@ -69,5 +72,25 @@ public class Feed {
                 .couple(couple)
                 .photoSpot(photoSpot)
                 .build();
+    }
+
+    public void updateFeed(String image, FeedRequestDTO requestDTO, PhotoSpot photoSpot, LocalDateTime updatedAt) {
+        this.image = image;
+        this.contents = requestDTO.getContents();
+        this.contentsDate = LocalDate.parse(requestDTO.getContentsDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        this.location = new Location(requestDTO.getLatitude(), requestDTO.getLongitude(), requestDTO.getAddress());
+        this.photoSpot = photoSpot;
+        this.updatedAt = updatedAt;
+    }
+
+    public void increaseLikeCount() {
+        this.likes++;
+    }
+
+    public void decreaseLikesCount() {
+        if (likes < 1) {
+            throw new IllegalArgumentException("좋아요 수는 음수가 될 수 없습니다.");
+        }
+        this.likes--;
     }
 }
