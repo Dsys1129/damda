@@ -14,18 +14,18 @@
 </header>
 <div class="content">
     <label class="upload-image">
-        <img src="../static/images/image_upload.png" alt="Upload Image">
+        <img id = 'feed-image' src="../static/images/image_upload.png" alt="Upload Image">
         <input type="file" id="imageUpload" accept="image/*" onchange="handleFileSelect(event)">
     </label>
     <form>
-        <textarea name="text" placeholder="추억을 작성해주세요"></textarea>
+        <textarea name="text" id = 'contents' placeholder="추억을 작성해주세요"></textarea>
     </form>
     <div>
-        <input placeholder="촬영날짜" type="date" name="date">
+        <input id = 'feed-date' placeholder="촬영날짜" type="date" name="date">
         <input type="text" id="photoSpotName" placeholder="촬영스팟 검색" readonly onclick="openModal()">
         <input type="text" id="realAddress" readonly>
     </div>
-    <input id = "submit" class="submit" type="submit" name="upload" value="피드 올리기">
+    <input id = "submit" class="submit" type="submit" name="upload" value="피드 수정">
 </div>
 <div id="myModal" class="modal">
     <div class="modal-content">
@@ -47,6 +47,6 @@
     </div>
 </div>
 <div th:replace="footer :: footer"></div>
-<script src="/js/map.js"></script>
+<script src="/js/feed-edit.js"></script>
 </body>
 </html>

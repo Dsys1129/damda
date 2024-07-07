@@ -30,7 +30,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     private boolean isStaticResource(String requestURI) {
         return requestURI.startsWith("/css/") || requestURI.startsWith("/js/") ||
                 requestURI.startsWith("/images/") || requestURI.startsWith("/fonts/") ||
-                requestURI.startsWith("/favicon.ico") || requestURI.startsWith("/static") ||
+                requestURI.startsWith("/favicon.ico.") || requestURI.startsWith("/static") ||
                 requestURI.startsWith("/resources");
     }
 

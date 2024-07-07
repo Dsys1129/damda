@@ -61,9 +61,6 @@
     select::-ms-expand{
         display:none;/*for IE10,11*/
     }
-    select::-ms-expand{
-        display:none;/*for IE10,11*/
-    }
     .date_class {
         padding-left: 20px;
     }
@@ -72,7 +69,6 @@
         position: relative;
         padding: 3px;
         background: url(../static/images/select.png) no-repeat 97% 50%/15px auto;;
-        /*text-align: center;*/
         font-size: 15px;
         outline: none;
     }
@@ -101,6 +97,7 @@
         border: 1px solid #E93778;
         border-radius: 10px;
         margin-bottom: 15px;
+        cursor: pointer;
     }
     .feed_image img{
         width: 100%;
@@ -146,154 +143,178 @@
     }
 </style>
 <body>
-    <header>
-        <div>
-            <img src="../static/images/header_1.png" alt="header_image"/>
+<header>
+    <div>
+        <img src="../static/images/header_1.png" alt="header_image"/>
+    </div>
+</header>
+<div class="content">
+    <h2>다른 커플들의 데이트가 궁금해?</h2>
+    <form id="selectionForm">
+        <div class="select_box1">
+            <label for="region"><img src="../static/images/region.png" alt="region" /></label>
+            <select id="region" name="region" onchange="fetchFeeds(true)">
+                <option value="11">전체</option>
+                <option value="1168000000">강남구</option>
+                <option value="1174000000">강동구</option>
+                <option value="1150000000">강서구</option>
+                <option value="1130500000">강북구</option>
+                <option value="1162000000">관악구</option>
+                <option value="1121500000">광진구</option>
+                <option value="1153000000">구로구</option>
+                <option value="1154500000">금천구</option>
+                <option value="1135000000">노원구</option>
+                <option value="1123000000">동대문구</option>
+                <option value="1132000000">도봉구</option>
+                <option value="1159000000">동작구</option>
+                <option value="1144000000">마포구</option>
+                <option value="1141000000">서대문구</option>
+                <option value="1120000000">성동구</option>
+                <option value="1129000000">성북구</option>
+                <option value="1165000000">서초구</option>
+                <option value="1171000000">송파구</option>
+                <option value="1156000000">영등포구</option>
+                <option value="1117000000">용산구</option>
+                <option value="1147000000">양천구</option>
+                <option value="1138000000">은평구</option>
+                <option value="1111000000">종로구</option>
+                <option value="1114000000">중구</option>
+                <option value="1126000000">중랑구</option>
+            </select>
         </div>
-    </header>
-    <div class="content">
-        <h2>다른 커플들의 데이트가 궁금해?</h2>
-            <form id="selectionForm">
-                <div class="select_box1">
-                    <label for="region"><img src="../static/images/region.png" alt="region" /></label>
-                    <select id="region" name="region">
-                        <option value="">전체</option>
-                        <option value="강남구">강남구</option>
-                        <option value="강동구">강동구</option>
-                        <option value="강서구">강서구</option>
-                        <option value="강북구">강북구</option>
-                        <option value="관악구">관악구</option>
-                        <option value="광진구">광진구</option>
-                        <option value="구로구">구로구</option>
-                        <option value="금천구">금천구</option>
-                        <option value="노원구">노원구</option>
-                        <option value="동대문구">동대문구</option>
-                        <option value="도봉구">도봉구</option>
-                        <option value="동작구">동작구</option>
-                        <option value="마포구">마포구</option>
-                        <option value="서대문구">서대문구</option>
-                        <option value="성동구">성동구</option>
-                        <option value="성북구">성북구</option>
-                        <option value="서초구">서초구</option>
-                        <option value="송파구">송파구</option>
-                        <option value="영등포구">영등포구</option>
-                        <option value="용산구">용산구</option>
-                        <option value="양천구">양천구</option>
-                        <option value="은평구">은평구</option>
-                        <option value="종로구">종로구</option>
-                        <option value="중구">중구</option>
-                        <option value="중랑구">중랑구</option>
-                    </select>
-
-                    <label for="date" class="date_class"><img src="../static/images/date.png" alt="date" /></label>
-                    <input type="date" id="date" name="date">
-                </div>
-                <div class="select_box2">
-                    <label for="order"></label>
-                    <select id="order" name="order">
-                        <option value="">좋아요순</option>
-                        <option value="최신순">최신순</option>
-                    </select>
-                </div>
-            </form>
-
-<!--            <div id="defaultImages" class="image-container">-->
-<!--                <img src="image1.jpg" alt="Image 1">-->
-<!--                <img src="image2.jpg" alt="Image 2">-->
-<!--                <img src="image3.jpg" alt="Image 3">-->
-<!--                <img src="image4.jpg" alt="Image 4">-->
-<!--                <img src="image5.jpg" alt="Image 5">-->
-<!--                <img src="image6.jpg" alt="Image 6">-->
-<!--                <img src="image7.jpg" alt="Image 7">-->
-<!--                <img src="image8.jpg" alt="Image 8">-->
-<!--            </div>-->
-
-            <div id="result">
-                <div class="feed_wrapper">
-                    <div class="feed_image">
-                        <img src="../static/images/ocean.jpg" alt="ocean">
-                    </div>
-                    <div class="feed_info">
-                        <div class="finfo_wrapper">
-                            <div class="profile_info">
-                                <img src="../static/images/c_profile.png" alt="couple_profile">
-                                <span>커플명</span>
-                            </div>
-                            <div>
-                                <img id="heart" class="heart" onclick="toggleHeart()" src="../static/images/empty_heart.png" alt="empty_heart">
-                            </div>
-                        </div>
-                        <div class="finfo_text">
-                            <div>남친이랑 바다데이트<br/>주변에 맛있는 것도 많고 바다도 예뻐서 사진이 잘 나와요</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="select_box2">
+            <label for="order"></label>
+            <select id="order" name="order" onchange="fetchFeeds(true)">
+                <option value="hot">좋아요순</option>
+                <option value="new">최신순</option>
+            </select>
         </div>
-    <footer>
-        <div class="footer_wrapper">
-            <div class="home_btn">
-                <img src="../static/images/home_btn.png" />
-            </div>
-            <div class="list_btn">
-                <img src="../static/images/list_btn.png" />
-            </div>
-            <div class="upload_btn">
-                <img src="../static/images/upload_btn.png" />
-            </div>
-            <div class="search_btn">
-                <img src="../static/images/search_btn.png" />
-            </div>
-            <div class="profile_btn">
-                <img src="../static/images/profile_btn.png" />
-            </div>
-        </div>
-    </footer>
-    <script>
-        // document.getElementById('region').addEventListener('change', fetchInfo);
-        // document.getElementById('date').addEventListener('change', fetchInfo);
-        //
-        // function fetchInfo() {
-        //     const region = document.getElementById('region').value;
-        //     const date = document.getElementById('date').value;
-        //     const defaultImages = document.getElementById('defaultImages');
-        //     const result = document.getElementById('result');
-        //
-        //     if (region && date) {
-        //         // 예제 데이터 (서버에서 가져오는 데이터 대신 사용)
-        //         const info = {
-        //             "전체": "전체의 정보입니다.",
-        //             "강남구": "강남구의 정보입니다.",
-        //             "강동구": "강동구의 정보입니다.",
-        //             "강서구": "강서구의 정보입니다.",
-        //             "강북구": "강북구의 정보입니다.",
-        //             "관악구": "관악구의 정보입니다.",
-        //             "광진구": "광진구의 정보입니다."
-        //         };
-        //
-        //         const selectedInfo = info[region] || "정보를 찾을 수 없습니다.";
-        //         result.innerText = `선택된 지역: ${region}, 선택된 날짜: ${date}\n${selectedInfo}`;
-        //         defaultImages.style.display = 'none';
-        //     } else {
-        //         result.innerText = '';
-        //         defaultImages.style.display = 'flex';
-        //     }
-        // }
+    </form>
+    <div id="result">
+        <!-- 여기에서 동적으로 피드 리스트가 렌더링됩니다. -->
+    </div>
+</div>
+<div th:replace="footer :: footer"></div>
 
-        // 초기 로딩 시 기본 이미지를 표시
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     document.getElementById('defaultImages').style.display = 'flex';
-        // });
+<script>
+    const feedImagePrefix = '/feeds_image/';
+    const coupleImagePrefix = '/couples_image/';
+    let currentPage = 1;
+    let isLoading = false;
+    let hasNextPage = true;
 
-        // 하트
-        function toggleHeart() {
-            const heart = document.getElementById('heart');
-            if (heart.src.endsWith('empty_heart.png')) {
-                heart.src = '../static/images/fill_heart.png';
-            } else {
-                heart.src = '../static/images/empty_heart.png';
-            }
+    async function fetchFeeds(reset = false) {
+        if (isLoading) return;
+        isLoading = true;
+
+        if (reset) {
+            currentPage = 1;
+            hasNextPage = true;
+            document.getElementById('result').innerHTML = '';
         }
-    </script>
+
+        const region = document.getElementById('region').value;
+        const order = document.getElementById('order').value;
+
+        try {
+            const response = await fetch(`/feeds?filter=${region}&sort=${order}&page=${currentPage}&size=3`);
+            const data = await response.json();
+
+            console.log(data); // 응답 구조를 확인합니다.
+
+            if (!data.data) {
+                console.error('Response does not contain data field');
+                return;
+            }
+
+            const resultDiv = document.getElementById('result');
+
+            data.data.forEach(feed => {
+                const feedWrapper = document.createElement('div');
+                feedWrapper.classList.add('feed_wrapper');
+                feedWrapper.onclick = () => {
+                    window.location.href = `/feeds-detail/${feed.id}`;
+                };
+
+                const feedImage = document.createElement('div');
+                feedImage.classList.add('feed_image');
+                const img = document.createElement('img');
+                img.src = feedImagePrefix + feed.image;
+                img.alt = 'feed image';
+                feedImage.appendChild(img);
+
+                const feedInfo = document.createElement('div');
+                feedInfo.classList.add('feed_info');
+
+                const finfoWrapper = document.createElement('div');
+                finfoWrapper.classList.add('finfo_wrapper');
+
+                const profileInfo = document.createElement('div');
+                profileInfo.classList.add('profile_info');
+                const profileImg = document.createElement('img');
+                profileImg.src = coupleImagePrefix + feed.coupleImage;
+                profileImg.alt = 'couple profile';
+                const profileSpan = document.createElement('span');
+                profileSpan.textContent = feed.coupleName;
+                profileInfo.appendChild(profileImg);
+                profileInfo.appendChild(profileSpan);
+
+                const heartDiv = document.createElement('div');
+                const heartImg = document.createElement('img');
+                heartImg.classList.add('heart');
+                heartImg.src = feed.liked ? '../static/images/fill_heart.png' : '../static/images/empty_heart.png';
+                heartImg.alt = 'heart';
+                heartImg.onclick = (event) => {
+                    event.stopPropagation(); // 부모 요소로의 클릭 이벤트 전파를 막습니다.
+                    toggleHeart(heartImg);
+                };
+                heartDiv.appendChild(heartImg);
+
+                finfoWrapper.appendChild(profileInfo);
+                finfoWrapper.appendChild(heartDiv);
+
+                const finfoText = document.createElement('div');
+                finfoText.classList.add('finfo_text');
+                const finfoTextContent = document.createElement('div');
+                finfoTextContent.innerHTML = feed.contents;
+                finfoText.appendChild(finfoTextContent);
+
+                feedInfo.appendChild(finfoWrapper);
+                feedInfo.appendChild(finfoText);
+
+                feedWrapper.appendChild(feedImage);
+                feedWrapper.appendChild(feedInfo);
+
+                resultDiv.appendChild(feedWrapper);
+            });
+
+            hasNextPage = data.hasNextPage;
+            currentPage++;
+        } catch (error) {
+            console.error('Error fetching feeds:', error);
+        } finally {
+            isLoading = false;
+        }
+    }
+
+    function toggleHeart(heart) {
+        if (heart.src.endsWith('empty_heart.png')) {
+            heart.src = '../static/images/fill_heart.png';
+        } else {
+            heart.src = '../static/images/empty_heart.png';
+        }
+    }
+
+    function handleScroll() {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && hasNextPage && !isLoading) {
+            fetchFeeds();
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    // 페이지 로드 시 피드를 불러옵니다.
+    document.addEventListener('DOMContentLoaded', () => fetchFeeds(true));
+</script>
 </body>
 </html>
