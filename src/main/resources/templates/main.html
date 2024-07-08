@@ -1,317 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Damda_Main</title>
-    </head>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <style>
-        @font-face {
-            font-family: 'Pretendard-Regular';
-            src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-            font-weight: 400;
-            font-style: normal;
-        }
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-            font-family: Pretendard, serif;
-        }
-        body {
-            max-width: 480px;
-            margin: 0 auto;
-            position: relative;
-        }
-        header {
-            box-shadow: 0 4px 4px 0 #d9d9d9;
-            z-index: 100;
-        }
-        header div {
-            padding-left: 15px;
-            height: 53px;
-            display: flex;
-            align-items: center;
-        }
-        .main_images {
-            position: relative;
-        }
-        .main_images img {
-            width: 100%;
-        }
-        .main_images_text {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
-        .main_images_text div {
-            display: flex;
-            margin-top: 6px;
-        }
-        .main_images_text h2 {
-            color: white;
-        }
-        .main_images_text .color_pink {
-            color: #E93778;
-            margin-left: 5px;
-        }
-        .best_spot {
-            padding: 0 15px 0 15px;
-        }
-        .best_spot h1 {
-            color: #E93778;
-            font-size: 25px;
-            padding-top: 10px;
-        }
-        .best_spot .best_spot_flex {
-            display: flex;
-            justify-content: space-between;
-        }
-        .best_spot_1, .best_spot_2 {
-            width: 47%;
-        }
-        .best_spot_1 {
-            padding-top: 15px;
-        }
-        .best_spot_2 {
-            padding-top: 40px;
-        }
-        .best_spot .best_spot_box_1 {
-            padding-bottom: 15px;
-            position: relative;
-        }
-        .best_spot .best_spot_box_2 {
-            position: relative;
-        }
-        .best_spot_1 img, .best_spot_2 img {
-            width: 100%;
-        }
-        .best_photo {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            display: flex;
-        }
-        .best_spot h4 {
-            color: white;
-            padding-left: 5px;
-        }
-        .best_photo img {
-            width: 15px;
-        }
-        .best_photo_info {
-            color: white;
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-        .best_photo_info h3 {
-            padding-bottom: 5px;
-        }
-        .best_couple {
-            padding: 0 15px 0 15px;
-        }
-        .best_couple h1 {
-            color: #E93778;
-            font-size: 25px;
-            padding-top: 30px;
-        }
-        .bx-wrapper {
-            border: 0; background:#fff;box-shadow:none;
-            margin-top: 20px;
-            margin-bottom: 90px;
-        }
-        .carousel-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .carousel-item img {
-            border-radius: 50%;
-        }
-        .carousel-text {
-            padding-top: 15px;
-            color: #E93778;
-        }
-        footer {
-            position: fixed;
-            bottom: 20px;
-            max-width: 480px;
-            width: 100%;
-            z-index: 999;
-        }
-        .footer_wrapper {
-            display: flex;
-            width: 94%;
-            background-color: white;
-            justify-content: space-around;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            border: 2px solid #E93778;
-            border-radius: 30px;
-            margin: 0 auto;
-        }
+<head>
+    <meta charset="UTF-8">
+    <title>Damda_Main</title>
+</head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<style>
+    @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: Pretendard, serif;
+    }
+    body {
+        max-width: 480px;
+        margin: 0 auto;
+        position: relative;
+    }
+    header {
+        box-shadow: 0 4px 4px 0 #d9d9d9;
+        z-index: 100;
+    }
+    header div {
+        padding-left: 15px;
+        height: 53px;
+        display: flex;
+        align-items: center;
+    }
+    .main_images {
+        position: relative;
+    }
+    .main_images img {
+        width: 100%;
+    }
+    .main_images_text {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+    .main_images_text div {
+        display: flex;
+        margin-top: 6px;
+    }
+    .main_images_text h2 {
+        color: white;
+    }
+    .main_images_text .color_pink {
+        color: #E93778;
+        margin-left: 5px;
+    }
+    .best_spot {
+        padding: 0 15px 0 15px;
+    }
+    .best_spot h1 {
+        color: #E93778;
+        font-size: 25px;
+        padding-top: 10px;
+    }
+    .best_spot .best_spot_flex {
+        display: flex;
+        justify-content: space-between;
+    }
+    .best_spot_1, .best_spot_2 {
+        width: 47%;
+    }
+    .best_spot_1 {
+        padding-top: 15px;
+    }
+    .best_spot_2 {
+        padding-top: 40px;
+    }
+    .best_spot .best_spot_box_1 {
+        padding-bottom: 15px;
+        position: relative;
+    }
+    .best_spot .best_spot_box_2 {
+        position: relative;
+    }
+    .best_spot_1 img, .best_spot_2 img {
+        width: 100%;
+    }
+    .best_photo {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        display: flex;
+    }
+    .best_spot h4 {
+        color: white;
+        padding-left: 5px;
+    }
+    .best_photo img {
+        width: 15px;
+    }
+    .best_photo_info {
+        color: white;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .best_photo_info h3 {
+        padding-bottom: 5px;
+    }
+    .best_couple {
+        padding: 0 15px 0 15px;
+    }
+    .best_couple h1 {
+        color: #E93778;
+        font-size: 25px;
+        padding-top: 30px;
+    }
+    .bx-wrapper {
+        border: 0; background:#fff;box-shadow:none;
+        margin-top: 20px;
+        margin-bottom: 90px;
+    }
+    .carousel-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100px; /* Reduce width */
+        cursor: pointer; /* Add pointer cursor */
+    }
+    .carousel-item img {
+        border-radius: 50%;
+        width: 80px; /* Reduce image size */
+        height: 80px; /* Maintain aspect ratio */
+    }
+    .carousel-text {
+        padding-top: 10px; /* Reduce padding */
+        color: #E93778;
+        font-size: 12px; /* Reduce font size */
+    }
+    footer {
+        position: fixed;
+        bottom: 20px;
+        max-width: 480px;
+        width: 100%;
+        z-index: 999;
+    }
+    .footer_wrapper {
+        display: flex;
+        width: 94%;
+        background-color: white;
+        justify-content: space-around;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: 2px solid #E93778;
+        border-radius: 30px;
+        margin: 0 auto;
+    }
+    .header-content {
+        padding-left: 15px;
+        height: 53px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .header-buttons {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+    }
 
-    </style>
-    <body>
-        <header>
+    .create-couple-btn,
+    .join-couple-btn {
+        background-color: #E93778;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-size: 14px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    .create-couple-btn:hover,
+    .join-couple-btn:hover {
+        background-color: #d82c67;
+    }
+</style>
+<body>
+<header>
+    <div>
+        <img src="../static/images/header_1.png" alt="header_image"/>
+        <div class="header-buttons">
+            <button class="create-couple-btn" onclick="location.href='/couples-create'">커플 생성</button>
+            <button class="join-couple-btn" onclick="joinCouple()">커플 참여</button>
+        </div>
+    </div>
+</header>
+<div class="content">
+    <div class="main_images">
+        <img src="../static/images/main_slogan.png" />
+        <div class="main_images_text">
+            <h2>추억을 저장하고 싶다면</h2>
             <div>
-                <img src="../static/images/header_1.png" alt="header_image"/>
+                <h2>시작해</h2>
+                <h2 class="color_pink">담다</h2>
             </div>
-        </header>
-        <div class="content">
-            <div class="main_images">
-                    <img src="../static/images/main_slogan.png" />
-                <div class="main_images_text">
-                    <h2>
-                        추억을 저장하고 싶다면
-                    </h2>
-                    <div>
-                        <h2>
-                            시작해
-                        </h2>
-                        <h2 class="color_pink">
-                            담다
-                        </h2>
+        </div>
+    </div>
+    <div class="best_spot">
+        <h1>DAMDA’s BEST SPOT!</h1>
+        <div class="best_spot_flex">
+            <div class="best_spot_1">
+                <div class="best_spot_box_1">
+                    <img id="spot1_img" src="../static/images/best_place1.png" />
+                    <div class="best_photo">
+                        <img src="../static/images/best.png" />
+                        <h4>1위</h4>
+                    </div>
+                    <div class="best_photo_info">
+                        <h3 id="spot1_name">서울타워</h3>
+                        <h4 id="spot1_region">서울 용산구</h4>
+                    </div>
+                </div>
+                <div class="best_spot_box_2">
+                    <img id="spot3_img" src="../static/images/best_place2.png" />
+                    <div class="best_photo">
+                        <img src="../static/images/best.png" />
+                        <h4>3위</h4>
+                    </div>
+                    <div class="best_photo_info">
+                        <h3 id="spot3_name">서울타워</h3>
+                        <h4 id="spot3_region">서울 용산구</h4>
                     </div>
                 </div>
             </div>
-            <div class="best_spot">
-                <h1>
-                    DAMDA’s BEST SPOT!
-                </h1>
-                <div class="best_spot_flex">
-                    <div class="best_spot_1">
-                        <div class="best_spot_box_1">
-                            <img src="../static/images/best_place1.png" />
-                            <div class="best_photo">
-                                <img src="../static/images/best.png" />
-                                <h4>1위</h4>
-                            </div>
-                            <div class="best_photo_info">
-                                <h3>
-                                    서울타워
-                                </h3>
-                                <h4>
-                                    서울 용산구
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="best_spot_box_2">
-                            <img src="../static/images/best_place2.png" />
-                            <div class="best_photo">
-                                <img src="../static/images/best.png" />
-                                <h4>3위</h4>
-                            </div>
-                            <div class="best_photo_info">
-                                <h3>
-                                    서울타워
-                                </h3>
-                                <h4>
-                                    서울 용산구
-                                </h4>
-                            </div>
-                        </div>
+            <div class="best_spot_2">
+                <div class="best_spot_box_1">
+                    <img id="spot2_img" src="../static/images/best_place3.png" />
+                    <div class="best_photo">
+                        <img src="../static/images/best.png" />
+                        <h4>2위</h4>
                     </div>
-                    <div class="best_spot_2">
-                        <div class="best_spot_box_1">
-                            <img src="../static/images/best_place3.png" />
-                            <div class="best_photo">
-                                <img src="../static/images/best.png" />
-                                <h4>2위</h4>
-                            </div>
-                            <div class="best_photo_info">
-                                <h3>
-                                    서울타워
-                                </h3>
-                                <h4>
-                                    서울 용산구
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="best_spot_box_2">
-                            <img src="../static/images/best_place4.png" />
-                            <div class="best_photo">
-                                <img src="../static/images/best.png" />
-                                <h4>4위</h4>
-                            </div>
-                            <div class="best_photo_info">
-                                <h3>
-                                    서울타워
-                                </h3>
-                                <h4>
-                                    서울 용산구
-                                </h4>
-                            </div>
-                        </div>
+                    <div class="best_photo_info">
+                        <h3 id="spot2_name">서울타워</h3>
+                        <h4 id="spot2_region">서울 용산구</h4>
                     </div>
                 </div>
-            </div>
-            <div class="best_couple">
-                <h1>
-                    DAMDA’s BEST COUPLE
-                </h1>
-                <div class="carousel">
-                    <div class="carousel-item">
-                        <img src="../static/images/couple1.png" alt="Image 1">
-                        <div class="carousel-text">1위 야식좋아</div>
+                <div class="best_spot_box_2">
+                    <img id="spot4_img" src="../static/images/best_place4.png" />
+                    <div class="best_photo">
+                        <img src="../static/images/best.png" />
+                        <h4>4위</h4>
                     </div>
-                    <div class="carousel-item">
-                        <img src="../static/images/couple2.png" alt="Image 2">
-                        <div class="carousel-text">2위 대구커플</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../static/images/couple3.png" alt="Image 3">
-                        <div class="carousel-text">3위 개발자커플</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../static/images/couple4.png" alt="Image 4">
-                        <div class="carousel-text">4위 알파시티</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../static/images/couple5.png" alt="Image 5">
-                        <div class="carousel-text">5위 자바커플</div>
+                    <div class="best_photo_info">
+                        <h3 id="spot4_name">서울타워</h3>
+                        <h4 id="spot4_region">서울 용산구</h4>
                     </div>
                 </div>
             </div>
         </div>
-        <footer>
-            <div class="footer_wrapper">
-                <div class="home_btn">
-                    <img src="../static/images/home_btn.png" />
-                </div>
-                <div class="list_btn">
-                    <img src="../static/images/list_btn.png" />
-                </div>
-                <div class="upload_btn">
-                    <img src="../static/images/upload_btn.png" />
-                </div>
-                <div class="search_btn">
-                    <img src="../static/images/search_btn.png" />
-                </div>
-                <div class="profile_btn">
-                    <img src="../static/images/profile_btn.png" />
-                </div>
-            </div>
-        </footer>
-        <script>
-            $(document).ready(function(){
-                $('.carousel').bxSlider({
-                    auto: true,
-                    speed: 100,
-                    slideWidth: 150,
-                    minSlides: 3,
-                    maxSlides: 3,
-                    slideMargin: 15,
-                    pager: false
+    </div>
+    <div class="best_couple">
+        <h1>DAMDA’s BEST COUPLE</h1>
+        <div class="carousel" id="best-couples-carousel">
+            <!-- Best couples will be injected here -->
+        </div>
+    </div>
+</div>
+<div th:replace="footer :: footer"></div>
+<script>
+    $(document).ready(function(){
+        $('.carousel').bxSlider({
+            auto: true,
+            speed: 100,
+            slideWidth: 150,
+            minSlides: 3,
+            maxSlides: 3,
+            slideMargin: 15,
+            pager: false
+        });
+        fetchBestSpots();
+        fetchBestCouples();
+    });
+
+    function joinCouple() {
+        const code = prompt("커플 코드를 입력하세요:");
+        if (code) {
+            fetch(`/couples/${code}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert("커플 참여에 성공했습니다.");
+                    } else {
+                        alert("커플 참여에 실패했습니다.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("커플 참여에 실패했습니다.");
                 });
+        }
+    }
+
+    function fetchBestSpots() {
+        const feed_prefix = '/feeds_image/';
+        fetch('/best-spots')
+            .then(response => response.json())
+            .then(data => {
+                if (data.code === 200) {
+                    const spots = data.data;
+                    if (spots.length >= 1) {
+                        document.getElementById('spot1_img').src = feed_prefix + spots[0].image;
+                        document.getElementById('spot1_name').innerText = spots[0].photoSpotName;
+                        document.getElementById('spot1_region').innerText = spots[0].lawRegion;
+                    }
+                    if (spots.length >= 2) {
+                        document.getElementById('spot2_img').src = feed_prefix + spots[1].image;
+                        document.getElementById('spot2_name').innerText = spots[1].photoSpotName;
+                        document.getElementById('spot2_region').innerText = spots[1].lawRegion;
+                    }
+                    if (spots.length >= 3) {
+                        document.getElementById('spot3_img').src = feed_prefix + spots[2].image;
+                        document.getElementById('spot3_name').innerText = spots[2].photoSpotName;
+                        document.getElementById('spot3_region').innerText = spots[2].lawRegion;
+                    }
+                    if (spots.length >= 4) {
+                        document.getElementById('spot4_img').src = feed_prefix + spots[3].image;
+                        document.getElementById('spot4_name').innerText = spots[3].photoSpotName;
+                        document.getElementById('spot4_region').innerText = spots[3].lawRegion;
+                    }
+                } else {
+                    console.error('Failed to fetch best spots:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching best spots:', error);
             });
-        </script>
-    </body>
+    }
+
+    function fetchBestCouples() {
+        fetch('/best-couples')
+            .then(response => response.json())
+            .then(data => {
+                if (data.code === 200) {
+                    const carousel = document.getElementById('best-couples-carousel');
+                    carousel.innerHTML = ''; // Clear existing items
+                    data.data.forEach((couple, index) => {
+                        const item = document.createElement('div');
+                        item.classList.add('carousel-item');
+                        item.setAttribute('onclick', `location.href='/couples-profile/${couple.id}'`);
+                        item.innerHTML = `
+                            <img src="/couples_image/${couple.coupleImage}" alt="${couple.coupleName}">
+                            <div class="carousel-text">${index + 1}위 ${couple.coupleName}</div>
+                        `;
+                        carousel.appendChild(item);
+                    });
+                    $('.carousel').bxSlider({
+                        auto: true,
+                        speed: 100,
+                        slideWidth: 150,
+                        minSlides: 3,
+                        maxSlides: 3,
+                        slideMargin: 15,
+                        pager: false
+                    });
+                } else {
+                    console.error('Failed to fetch best couples:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching best couples:', error);
+            });
+    }
+</script>
+</body>
 </html>

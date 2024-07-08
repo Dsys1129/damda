@@ -1,10 +1,12 @@
 package com.damda.feed.entity;
 
-import com.damda.user.entity.User;
+import com.damda.couple.entity.Couple;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "likes")
 @Entity
@@ -19,6 +21,11 @@ public class Like {
     private Feed feed;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
-    private User user;
+    @JoinColumn(name = "couple_id", foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+    private Couple couple;
+
+    public Like(Feed feed, Couple couple) {
+        this.feed = feed;
+        this.couple = couple;
+    }
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>업로드 페이지</title>
+    <link rel="stylesheet" href="/css/upload.css">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3616e9e8a66bf9d7b1cbb8921a841a16&libraries=services"></script>
+</head>
+<body>
+<header>
+    <div>
+        <img src="../static/images/header_1.png" alt="header_image"/>
+    </div>
+</header>
+<div class="content">
+    <label class="upload-image">
+        <img id = 'feed-image' src="../static/images/image_upload.png" alt="Upload Image">
+        <input type="file" id="imageUpload" accept="image/*" onchange="handleFileSelect(event)">
+    </label>
+    <form>
+        <textarea name="text" id = 'contents' placeholder="추억을 작성해주세요"></textarea>
+    </form>
+    <div>
+        <input id = 'feed-date' placeholder="촬영날짜" type="date" name="date">
+        <input type="text" id="photoSpotName" placeholder="촬영스팟 검색" readonly onclick="openModal()">
+        <input type="text" id="realAddress" readonly>
+    </div>
+    <input id = "submit" class="submit" type="submit" name="upload" value="피드 수정">
+</div>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="searchContainer">
+            <input type="text" id="searchBox" placeholder="검색어를 입력하세요">
+            <button onclick="searchPlaces()">검색</button>
+        </div>
+        <div id="searchResults">
+            <!-- 검색 결과가 여기에 나타납니다. -->
+        </div>
+        <div id="map"></div>
+        <div id="location-info">
+            <p id="address"></p>
+            <p id="real-address"></p>
+            <p id="coordinates"></p>
+            <button type="button" onclick="confirmLocation()">여기서 촬영했어요!</button>
+        </div>
+    </div>
+</div>
+<div th:replace="footer :: footer"></div>
+<script src="/js/feed-edit.js"></script>
+</body>
+</html>
