@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>검색</title>
+</head>
+<style>
+    @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: Pretendard, serif;
+    }
+    body {
+        max-width: 480px;
+        margin: 0 auto;
+        position: relative;
+    }
+    header {
+        box-shadow: 0 4px 4px 0 #d9d9d9;
+        z-index: 100;
+    }
+    header div {
+        padding-left: 15px;
+        height: 53px;
+        display: flex;
+        align-items: center;
+    }
+    .content {
+        padding: 0 15px;
+    }
+    .search_box {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+    }
+    .search_txt {
+        width: 90%;
+        height: 40px;
+        border: 1px solid #E93778;
+        border-right: none;
+        border-radius: 7px 0 0 7px;
+        outline: none;
+    }
+    .search_box button {
+        border: none;
+        background-color: #fff;
+        padding: 0 10px 0 10px;
+        border: 1px solid #E93778;
+        border-left: none;
+        border-radius: 0 7px 7px 0;
+    }
+    .recommand_wrap h2 {
+        padding-top: 30px;
+        color: #E93778;
+        padding-bottom: 20px;
+    }
+    .recommand_couple {
+        border: 1px solid #E93778;
+        border-radius: 7px;
+        padding: 10px 10px 0 10px;
+        margin-bottom: 10px;
+    }
+    .c_box_wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    .couple_box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .couple_box img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+        margin-right: 10px;
+    }
+    .recommand_spot h2 {
+        color: #E93778;
+    }
+    .spot_wrap {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .r_spot_wrapper {
+        width: 48%;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    /*.r_spot_wrapper p {*/
+    /*    position: absolute;*/
+    /*    top: 15px;*/
+    /*    right: 15px;*/
+    /*    color: #fff;*/
+    /*}*/
+    .r_spot_wrapper img {
+        width: 100%;
+    }
+    footer {
+        position: fixed;
+        bottom: 20px;
+        max-width: 480px;
+        width: 100%;
+        z-index: 999;
+    }
+    .footer_wrapper {
+        display: flex;
+        width: 94%;
+        background-color: white;
+        justify-content: space-around;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: 2px solid #E93778;
+        border-radius: 30px;
+        margin: 0 auto;
+    }
+    .hidden {
+        display: none;
+    }
+</style>
+<body>
+<header>
+    <div>
+        <img src="../static/images/header_1.png" alt="header_image"/>
+    </div>
+</header>
+<div class="content">
+    <form class="search_box" id="searchForm">
+        <input class="search_txt" type="text" name="query" placeholder="검색어를 입력해주세요" />
+        <button class="search_btn" type="submit">
+            <img src="../static/images/search_btn.png" />
+        </button>
+    </form>
+    <div class="recommand_wrap" id="recommandWrap">
+        <h2>HOT COUPLE</h2>
+        <div class="recommand_couple">
+            <div class="c_box_wrapper">
+                <div class="couple_box">
+                    <img src="../static/images/couple1.png" />
+                    <p>커플명</p>
+                </div>
+                <div class="couple_box">
+                    <img src="../static/images/couple2.png" />
+                    <p>커플명</p>
+                </div>
+                <div class="couple_box">
+                    <img src="../static/images/couple3.png" />
+                    <p>커플명</p>
+                </div>
+                <div class="couple_box">
+                    <img src="../static/images/couple4.png" />
+                    <p>커플명</p>
+                </div>
+            </div>
+            <div class="c_box_wrapper">
+                <div class="couple_box">
+                    <img src="../static/images/couple5.png" />
+                    <p>커플명</p>
+                </div>
+                <div class="couple_box">
+                    <img src="../static/images/couple1.png" />
+                    <p>커플명</p>
+                </div>
+                <div class="couple_box">
+                    <img src="../static/images/couple2.png" />
+                    <p>커플명</p>
+                </div>
+                <div class="couple_box">
+                    <img src="../static/images/couple3.png" />
+                    <p>커플명</p>
+                </div>
+            </div>
+            <div class="c_box_wrapper">
+                <div class="couple_box">
+                    <img src="../static/images/couple4.png" />
+                    <p>커플명</p>
+                </div>
+                <div class="couple_box">
+                    <img src="../static/images/couple5.png" />
+                    <p>커플명</p>
+                </div>
+                <div class="couple_box">
+                    <img src="../static/images/couple1.png" />
+                    <p>커플명</p>
+                </div>
+                <div class="couple_box">
+                    <img src="../static/images/couple2.png" />
+                    <p>커플명</p>
+                </div>
+            </div>
+        </div>
+        <div class="recommand_spot">
+            <h2>RANDOM RECOMMAND</h2>
+            <div class="spot_wrap">
+                <div class="r_spot_wrapper">
+                    <img src="../static/images/best_place1.png" />
+                    <!--                        <p>장소명</p>-->
+                </div>
+                <div class="r_spot_wrapper">
+                    <img src="../static/images/best_place2.png" />
+                    <!--                        <p>장소명</p>-->
+                </div>
+                <div class="r_spot_wrapper">
+                    <img src="../static/images/best_place3.png" />
+                    <!--                        <p>장소명</p>-->
+                </div>
+                <div class="r_spot_wrapper">
+                    <img src="../static/images/best_place4.png" />
+                    <!--                        <p>장소명</p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="search_result hidden" id="searchResult">
+        <!-- 검색시 나와야 하는 결과물 -->
+        <h2>검색 결과</h2>
+        <p>검색어와 관련된 결과물</p>
+    </div>
+</div>
+<footer>
+    <div class="footer_wrapper">
+        <div class="home_btn">
+            <img src="../static/images/home_btn.png" />
+        </div>
+        <div class="list_btn">
+            <img src="../static/images/list_btn.png" />
+        </div>
+        <div class="upload_btn">
+            <img src="../static/images/upload_btn.png" />
+        </div>
+        <div class="search_btn">
+            <img src="../static/images/search_btn.png" />
+        </div>
+        <div class="profile_btn">
+            <img src="../static/images/profile_btn.png" />
+        </div>
+    </div>
+</footer>
+<script>
+    document.getElementById('searchForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // 기본 폼 제출 동작을 막음
+        document.querySelector('.recommand_wrap').style.display = 'none'; // recommand_wrap 숨기기
+        document.getElementById('searchResult').classList.remove('hidden'); // searchResult 보이기
+    });
+</script>
+</body>
+</html>
